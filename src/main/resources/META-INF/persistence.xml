@@ -7,4 +7,3 @@
         <class>com.laptrinhjavaweb.entity.CategoryEntity</class>
     </persistence-unit>
 </persistence>
-

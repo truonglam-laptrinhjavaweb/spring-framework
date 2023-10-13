@@ -46,7 +46,7 @@ public class NewService implements INewService {
 
 	@Override
 	public NewDTO findById(long id) {
-		NewEntity entity = newRepository.findOne(id);
+		NewEntity entity = newRepository.findById(id).get();
 		return newConverter.toDto(entity);
 	}
 	
@@ -56,7 +56,7 @@ public class NewService implements INewService {
 		CategoryEntity category = categoryRepository.findOneByCode(dto.getCategoryCode());
 		NewEntity newEntity = new NewEntity();
 		if (dto.getId() != null) {
-			NewEntity oldNew = newRepository.findOne(dto.getId());
+			NewEntity oldNew = newRepository.findById(dto.getId()).get();
 			oldNew.setCategory(category);
 			newEntity = newConverter.toEntity(oldNew, dto);
 		} else {
@@ -70,7 +70,7 @@ public class NewService implements INewService {
 	@Transactional
 	public void delete(long[] ids) {
 		for (long id: ids) {
-			newRepository.delete(id);
+			newRepository.deleteById(id);
 		}
 	}
 }

@@ -20,7 +20,7 @@
 				</security:authorize>
 				<security:authorize access = "isAuthenticated()">
 					<li class="nav-item"><a class="nav-link" href="#">Wellcome <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value='/thoat'/>">Thoát</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value='/logout'/>">Thoát</a></li>
 				</security:authorize>
 			</ul>
 		</div>

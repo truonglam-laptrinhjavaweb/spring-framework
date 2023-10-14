@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -47,13 +48,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/quan-tri/*").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 .and()
-                .formLogin().loginPage("/dang-nhap").usernameParameter("j_username").passwordParameter("j_password").permitAll()
-                .loginProcessingUrl("/j_spring_security_check")
+                .formLogin().loginPage("/dang-nhap").permitAll().loginProcessingUrl("/login")
                 .successHandler(myAuthenticationSuccessHandler())
                 .failureUrl("/dang-nhap?incorrectAccount").and()
-                .logout().logoutUrl("/thoat").deleteCookies("JSESSIONID")
-                .and().exceptionHandling().accessDeniedPage("/accessDenied").and()
-                .sessionManagement().maximumSessions(1).expiredUrl("/dang-nhap?sessionTimeout");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
+                .and().exceptionHandling().accessDeniedPage("/dang-nhap?accessDenied").and()
+                .sessionManagement().maximumSessions(4).expiredUrl("/dang-nhap?sessionTimeout");
     }
 
     @Bean

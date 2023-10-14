@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trang chủ</title>
+<title><sitemesh:write property="Trang chủ"/></title>
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value='/template/web/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
 	<!-- Navigation -->
 	<%@ include file="/common/web/header.jsp" %>
 
-	<dec:body/>
+	<sitemesh:write property="body"/>
 
 	<!-- Footer -->
 	<%@ include file="/common/web/footer.jsp" %>

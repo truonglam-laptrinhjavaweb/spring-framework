@@ -12,12 +12,15 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class MainWebAppInitializer implements WebApplicationInitializer {
 
     @Override
-    public void onStartup(ServletContext container) throws ServletException {
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.scan("com.laptrinhjavaweb");
-        container.addListener(new ContextLoaderListener(context));
-        ServletRegistration.Dynamic dispatcher = container.addServlet("mvc", new DispatcherServlet(context));
-        dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/");
+    public void onStartup (ServletContext servletContext) throws ServletException {
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        //register our config class
+        ctx.register(ApplicationContextConfig.class);
+        servletContext.addListener(new ContextLoaderListener(ctx));
+        //using servlet 3 api to dynamically create
+        //spring dispatcher servlet
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("mvc", new DispatcherServlet(ctx));
+        servlet.setLoadOnStartup(1);
+        servlet.addMapping("/");
     }
 }

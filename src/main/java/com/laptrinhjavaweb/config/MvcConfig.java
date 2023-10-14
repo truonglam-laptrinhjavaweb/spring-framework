@@ -10,7 +10,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-//@ComponentScan(basePackages = {"com.laptrinhjavaweb.api","com.laptrinhjavaweb.controller"})
 public class MvcConfig implements WebMvcConfigurer {
 
     @Override

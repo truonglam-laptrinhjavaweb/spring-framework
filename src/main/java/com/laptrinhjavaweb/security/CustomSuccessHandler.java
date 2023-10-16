@@ -11,7 +11,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.laptrinhjavaweb.util.SecurityUtils;
+import com.laptrinhjavaweb.utils.SecurityUtils;
 
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.laptrinhjavaweb.dto.NewDTO;
 import com.laptrinhjavaweb.service.ICategoryService;
 import com.laptrinhjavaweb.service.INewService;
-import com.laptrinhjavaweb.util.MessageUtil;
+import com.laptrinhjavaweb.utils.MessageUtil;
 
 @Controller(value = "newControllerOfAdmin")
 public class NewController {

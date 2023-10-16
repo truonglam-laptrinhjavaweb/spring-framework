@@ -100,9 +100,26 @@
 </div>	
 
 <script>
+	var editor = '';
+	$(document).ready(function () {
+		/*const configCKEditor = {
+			allowedContent: true,
+			filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
+		}
+		editor = CKEDITOR.replace('content', configCKEditor);*/
+		//CKFinder.setupCKEditor(editor);
+		editor = CKEDITOR.replace('content');
+	});
 	$('#btnAddOrUpdateNew').click(function (e) {
 	    e.preventDefault();
+
 	    var data = {};
+		data["content"] = editor.getData();
 	    var formData = $('#formSubmit').serializeArray();
 	    $.each(formData, function (i, v) {
             data[""+v.name+""] = v.value;

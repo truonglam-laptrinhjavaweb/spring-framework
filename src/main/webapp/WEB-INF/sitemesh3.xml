@@ -6,6 +6,7 @@
 <mapping path="/dang-nhap*" decorator="login.jsp"/>
 
 <!-- Exclude path from decoration. -->
-<!--<mapping path="/login*" exclude="true"/>-->
+<mapping path="/ckeditor*" exclude="true"/>
+<mapping path="/ckfinder*" exclude="true"/>
 
 </sitemesh>

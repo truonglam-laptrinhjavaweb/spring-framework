@@ -39,22 +39,6 @@
         <url-pattern>/repository/*</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>CKFinder</servlet-name>
-        <servlet-class>com.cksource.ckfinder.servlet.CKFinderServlet</servlet-class>
-        <multipart-config>
-            <location>/tmp</location>
-            <max-file-size>5242880</max-file-size><!--5MB-->
-            <max-request-size>20971520</max-request-size><!--20MB-->
-            <file-size-threshold>0</file-size-threshold>
-        </multipart-config>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>CKFinder</servlet-name>
-        <url-pattern>/ckfinder/*</url-pattern>
-    </servlet-mapping>
-
     <session-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>

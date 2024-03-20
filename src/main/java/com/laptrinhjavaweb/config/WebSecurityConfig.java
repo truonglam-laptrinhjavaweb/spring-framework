@@ -48,15 +48,10 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
-        return new MvcRequestMatcher.Builder(introspector);
-    }
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(mvc.pattern("/quan-tri/*")).hasRole("ADMIN")
+                        .requestMatchers("/quan-tri/*").hasRole("ADMIN")
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                         .anyRequest().permitAll())
                 .formLogin(form -> form.loginPage("/dang-nhap").permitAll().loginProcessingUrl("/login")

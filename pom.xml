@@ -8,10 +8,10 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<springframework.version>6.0.12</springframework.version>
-		<springsecurity.version>6.1.4</springsecurity.version>
-		<jackson.version>2.15.2</jackson.version>
-		<maven.compiler.release>21</maven.compiler.release>
+		<springframework.version>6.1.5</springframework.version>
+		<springsecurity.version>6.3.0-M3</springsecurity.version>
+		<jackson.version>2.17.0</jackson.version>
+		<maven.compiler.release>22</maven.compiler.release>
 	</properties>
 
 	<dependencies>
@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
-			<version>6.1.4</version>
+			<version>${springsecurity.version}</version>
 		</dependency>
 
 		<!-- servlet api -->
@@ -121,28 +121,28 @@
 		<dependency>
 			<groupId>org.sitemesh</groupId>
 			<artifactId>sitemesh</artifactId>
-			<version>3.2.0-M2</version>
+			<version>3.2.0</version>
 		</dependency>
 
 		<!-- Mysql -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>8.0.33</version>
+			<version>8.3.0</version>
 		</dependency>
 
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.2.9.Final</version>
+			<version>6.4.4.Final</version>
 		</dependency>
 
 		<!-- Spring data -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>3.1.4</version>
+			<version>3.3.0-M2</version>
 		</dependency>
 		
 		<!-- json -->
@@ -166,7 +166,7 @@
 		<dependency>
 			<groupId>com.cksource</groupId>
 			<artifactId>ckfinder3</artifactId>
-			<version>4.0.0</version>
+			<version>4.0.1</version>
 		</dependency>
 
 	</dependencies>
@@ -177,5 +177,40 @@
 			<name>CKSource Maven Repository</name>
 			<url>https://maven.cksource.com/</url>
 		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
